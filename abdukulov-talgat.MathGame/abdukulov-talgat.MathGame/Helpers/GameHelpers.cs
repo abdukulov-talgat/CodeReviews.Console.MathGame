@@ -1,5 +1,3 @@
-using System.Drawing;
-
 namespace abdukulov_talgat.MathGame.Helpers;
 
 public static class GameHelpers
@@ -14,8 +12,9 @@ public static class GameHelpers
         foreach (char c in newMessage)
         {
             Console.Write(c);
-            Thread.Sleep(50); //TODO: Fix Magic Number
+            Thread.Sleep(AppConsts.AdjustTypingDelay);
         }
+
         Console.WriteLine();
         Console.ResetColor();
     }

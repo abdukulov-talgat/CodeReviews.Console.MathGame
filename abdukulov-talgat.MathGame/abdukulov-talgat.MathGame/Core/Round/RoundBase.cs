@@ -20,7 +20,7 @@ public abstract class RoundBase(int left, int right, Operation operation)
 
     protected abstract int ExpectedResult { get; }
 
-    public bool IsCorrectAnswer => ExpectedResult == ActualResult;
+    private bool IsCorrectAnswer => ExpectedResult == ActualResult;
 
     public int GetScore()
     {

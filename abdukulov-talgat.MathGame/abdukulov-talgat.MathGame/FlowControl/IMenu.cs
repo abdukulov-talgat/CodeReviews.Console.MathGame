@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using abdukulov_talgat.MathGame.Helpers;
 
-namespace abdukulov_talgat.MathGame.UI;
+namespace abdukulov_talgat.MathGame.FlowControl;
 
 public interface IMenu
 {

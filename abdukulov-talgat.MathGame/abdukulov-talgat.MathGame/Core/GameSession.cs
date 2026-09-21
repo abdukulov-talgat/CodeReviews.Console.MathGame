@@ -6,20 +6,18 @@ namespace abdukulov_talgat.MathGame.Core;
 public class GameSession : IEnumerable<RoundBase>
 {
     private readonly Operation _availableOperations;
-    private readonly int _roundsCount;
 
     private readonly List<RoundBase> _roundsList = [];
 
-    public GameSession(int roundsCount, Operation availableOperations)
+    public GameSession(Operation availableOperations)
     {
-        _roundsCount = roundsCount;
         _availableOperations = availableOperations;
         Initialize();
     }
 
     private void Initialize()
     {
-        for (int i = 0; i < _roundsCount; i++)
+        for (int i = 0; i < AppConsts.RoundsPerSession; i++)
         {
             RoundBase roundBase = RoundFactory.Create(_availableOperations);
             _roundsList.Add(roundBase);

@@ -1,7 +1,7 @@
 using abdukulov_talgat.MathGame.Core;
 using abdukulov_talgat.MathGame.Helpers;
 
-namespace abdukulov_talgat.MathGame.UI;
+namespace abdukulov_talgat.MathGame.FlowControl;
 
 public class HistoryFlowState : FlowStateBase
 {

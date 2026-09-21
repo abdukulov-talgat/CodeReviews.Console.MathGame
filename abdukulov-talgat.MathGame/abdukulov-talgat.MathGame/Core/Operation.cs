@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using abdukulov_talgat.MathGame.Core.Round;
 
 namespace abdukulov_talgat.MathGame.Core;

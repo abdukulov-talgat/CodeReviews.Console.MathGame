@@ -12,7 +12,6 @@ public class MinusRound : RoundBase
 
     protected override int ExpectedResult => Left - Right;
 
-
     public static RoundBase Create()
     {
         return new MinusRound();

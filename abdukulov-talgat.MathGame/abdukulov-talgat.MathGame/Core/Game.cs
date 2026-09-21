@@ -2,15 +2,13 @@ using abdukulov_talgat.MathGame.Core.Round;
 
 namespace abdukulov_talgat.MathGame.Core;
 
-public class Game(int rounds)
+public class Game
 {
-    private readonly int _rounds = rounds;
-
     private readonly IList<GameSession> _sessionList = [];
 
     public IEnumerable<RoundBase> GetSessionRounds(Operation operation)
     {
-        GameSession session = new(_rounds, operation);
+        GameSession session = new(operation);
         _sessionList.Add(session);
         return session;
     }

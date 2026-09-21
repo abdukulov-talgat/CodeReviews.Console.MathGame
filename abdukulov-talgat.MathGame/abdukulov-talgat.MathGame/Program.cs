@@ -1,12 +1,10 @@
-﻿using abdukulov_talgat.MathGame.Helpers;
-using abdukulov_talgat.MathGame.UI;
+﻿using abdukulov_talgat.MathGame.FlowControl;
+using abdukulov_talgat.MathGame.Helpers;
 
 namespace abdukulov_talgat.MathGame;
 
 internal static class Program
 {
-    private const int RoundsPerSession = 5;
-
     private static void Main()
     {
         Console.WriteLine(string.PadCenter());
@@ -15,7 +13,7 @@ internal static class Program
         Console.WriteLine("\n");
 
         MainMenuState mainMenuState = new();
-        GameFlowContext context = new(RoundsPerSession, mainMenuState);
+        GameFlowContext context = new(mainMenuState);
 
         context.StartGameLoop();
 

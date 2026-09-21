@@ -1,6 +1,6 @@
 using abdukulov_talgat.MathGame.Core;
 
-namespace abdukulov_talgat.MathGame.UI;
+namespace abdukulov_talgat.MathGame.FlowControl;
 
 public class PlusOperationFlow : OperationFlowStateBase
 {

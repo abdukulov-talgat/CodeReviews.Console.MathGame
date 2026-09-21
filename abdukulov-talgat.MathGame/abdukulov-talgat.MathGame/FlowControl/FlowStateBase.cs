@@ -1,4 +1,4 @@
-namespace abdukulov_talgat.MathGame.UI;
+namespace abdukulov_talgat.MathGame.FlowControl;
 
 public abstract class FlowStateBase
 {

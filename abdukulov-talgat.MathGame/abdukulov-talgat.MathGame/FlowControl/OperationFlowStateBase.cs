@@ -2,9 +2,9 @@ using abdukulov_talgat.MathGame.Core;
 using abdukulov_talgat.MathGame.Core.Round;
 using abdukulov_talgat.MathGame.Helpers;
 
-namespace abdukulov_talgat.MathGame.UI;
+namespace abdukulov_talgat.MathGame.FlowControl;
 
-public abstract class OperationFlowStateBase : FlowStateBase, IOperationProvider
+public abstract class OperationFlowStateBase : FlowStateBase
 {
     public override void ProcessGameLoop()
     {
