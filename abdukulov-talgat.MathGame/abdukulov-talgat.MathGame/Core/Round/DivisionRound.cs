@@ -4,9 +4,14 @@ public class DivisionRound : RoundBase
 {
     private DivisionRound() : base(0, 0, Operation.Division)
     {
-        //TODO: Only integer result. Adjust
-        Left = Random.Shared.Next(MinNumber, MaxNumber + 1);
-        Right = Random.Shared.Next(MinNumber, MaxNumber + 1);
+        int minDivisor = Math.Max(1, MinNumber);
+        int maxDivisor = (int)Math.Sqrt(MaxNumber);
+        maxDivisor = (int)(maxDivisor * 1.5);
+
+        Right = Random.Shared.Next(minDivisor, maxDivisor + 1);
+        int maxQuotient = MaxNumber / Right;
+        int quotient = Random.Shared.Next(1, maxQuotient + 1);
+        Left = Right * quotient;
     }
 
     protected override int Score => 2;
