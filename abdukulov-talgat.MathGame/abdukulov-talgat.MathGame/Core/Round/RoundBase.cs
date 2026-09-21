@@ -2,29 +2,45 @@ using abdukulov_talgat.MathGame.Helpers;
 
 namespace abdukulov_talgat.MathGame.Core.Round;
 
-public abstract class RoundBase(int left, int right, Operation operation)
+public abstract class RoundBase
 {
-    protected const int MinNumber = 0;
+    protected RoundBase()
+    {
+        Difficulty = Game.Instance.Difficulty;
+        Left = Random.Shared.Next(Difficulty.MinNumber, Difficulty.MaxNumber + 1);
+        Right = Random.Shared.Next(Difficulty.MinNumber, Difficulty.MaxNumber + 1);
+    }
 
-    protected const int MaxNumber = 100;
+    private bool _gotAnswer;
 
-    public int Left { get; protected init; } = left;
+    public int Left { get; protected init; }
 
-    public int Right { get; protected init; } = right;
+    public int Right { get; protected init; }
 
-    public Operation Operation { get; protected init; } = operation;
+    public Operation Operation { get; protected init; }
 
-    public int ActualResult { get; set; }
+    public int ActualResult
+    {
+        get;
+        set
+        {
+            if (_gotAnswer) return;
+            _gotAnswer = true;
+            field = value;
+        }
+    }
 
-    protected abstract int Score { get; }
+    public Difficulty Difficulty { get; init; }
+
+    protected abstract float ScoreBase { get; }
 
     protected abstract int ExpectedResult { get; }
 
     private bool IsCorrectAnswer => ExpectedResult == ActualResult;
 
-    public int GetScore()
+    public float GetScore()
     {
-        return IsCorrectAnswer ? Score : 0;
+        return IsCorrectAnswer ? ScoreBase * Difficulty.ScoreMultiplier : 0;
     }
 
     public override string ToString()

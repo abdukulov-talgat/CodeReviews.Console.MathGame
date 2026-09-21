@@ -24,7 +24,7 @@ public class GameSession : IEnumerable<RoundBase>
         }
     }
 
-    public int GetScore()
+    public float GetScore()
     {
         return _roundsList.Sum(r => r.GetScore());
     }

@@ -4,7 +4,20 @@ namespace abdukulov_talgat.MathGame.Core;
 
 public class Game
 {
+    public static Game Instance
+    {
+        get
+        {
+            if (field == null) field = new Game();
+            return field;
+        }
+    }
+    
+    private Game(){}
+
     private readonly IList<GameSession> _sessionList = [];
+
+    public Difficulty Difficulty { get; private set; }
 
     public IEnumerable<RoundBase> GetSessionRounds(Operation operation)
     {
@@ -13,10 +26,15 @@ public class Game
         return session;
     }
 
-    public int GetLastSessionScore()
+    public float GetLastSessionScore()
     {
         return _sessionList.Last().GetScore();
     }
 
     public IReadOnlyList<GameSession> GetSessionsHistory() => _sessionList.AsReadOnly();
+
+    public void ChangeDifficulty(Difficulty difficulty)
+    {
+        Difficulty = difficulty;
+    }
 }

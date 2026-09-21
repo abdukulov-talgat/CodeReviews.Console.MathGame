@@ -7,12 +7,12 @@ public interface IMenu
 {
     ReadOnlyDictionary<string, MenuItem> MenuItems { get; }
 
-    MenuItem ProcessMenu()
+    MenuItem ProcessMenu(string title)
     {
         string? userInput = null;
         while (userInput is null || !MenuItems.ContainsKey(userInput))
         {
-            Console.WriteLine(string.PadCenter("Play Menu"));
+            Console.WriteLine(string.PadCenter(title)); //TODO: not fixed string
             PrintMenu();
             userInput = Console.ReadLine();
             GameHelpers.AdjustLastLine(userInput);

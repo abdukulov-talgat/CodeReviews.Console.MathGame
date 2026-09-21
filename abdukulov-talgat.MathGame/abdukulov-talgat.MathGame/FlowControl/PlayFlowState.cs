@@ -13,12 +13,13 @@ public class PlayFlowState : FlowStateBase, IMenu
         { "3", new MenuItem(Display: Operation.Multiply.GetDescription(), () => new MultiplyOperationFlow()) },
         { "4", new MenuItem(Display: Operation.Division.GetDescription(), () => new DivisionOperationFlow()) },
         { "5", new MenuItem(Display: Operation.All.GetDescription(), () => new RandomOperationFlow()) },
-        { "6", new MenuItem("Back", () => new MainMenuState()) },
+        { "6", new MenuItem("Back", () => new DifficultyFlowState()) },
+        { "7", new MenuItem("Main Menu", () => new MainMenuState()) },
     };
 
     public override void ProcessGameLoop()
     {
-        MenuItem menuItem = (this as IMenu).ProcessMenu();
+        MenuItem menuItem = (this as IMenu).ProcessMenu("Play Menu");
         Context.ChangeState(menuItem.Creator.Invoke());
     }
 

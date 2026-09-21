@@ -2,13 +2,12 @@ namespace abdukulov_talgat.MathGame.Core.Round;
 
 public class MultiplyRound : RoundBase
 {
-    private MultiplyRound() : base(Random.Shared.Next(MinNumber, MaxNumber + 1),
-        Random.Shared.Next(MinNumber, MaxNumber + 1),
-        Operation.Multiply)
+    private MultiplyRound()
     {
+        Operation = Operation.Multiply;
     }
 
-    protected override int Score => 2;
+    protected override float ScoreBase => 2;
 
     protected override int ExpectedResult => Left * Right;
 

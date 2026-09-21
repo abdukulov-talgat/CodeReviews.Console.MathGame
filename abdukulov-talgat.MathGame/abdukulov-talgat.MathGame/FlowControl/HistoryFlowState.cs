@@ -8,7 +8,7 @@ public class HistoryFlowState : FlowStateBase
     public override void ProcessGameLoop()
     {
         Console.WriteLine(string.PadCenter("Previous Sessions"));
-        PrintHistory(Context.GetGame().GetSessionsHistory());
+        PrintHistory(Game.Instance.GetSessionsHistory());
         Context.ChangeState(new MainMenuState());
     }
 
@@ -23,7 +23,7 @@ public class HistoryFlowState : FlowStateBase
         for (int i = 0; i < history.Count; i++)
         {
             GameSession session = history[i];
-            Console.WriteLine($"{i + 1}) Score: {session.GetScore()}");
+            Console.WriteLine($"{i + 1}) Score: {session.GetScore():F2}");
         }
     }
 }

@@ -2,13 +2,12 @@ namespace abdukulov_talgat.MathGame.Core.Round;
 
 public class PlusRound : RoundBase
 {
-    private PlusRound() : base(Random.Shared.Next(MinNumber, MaxNumber + 1),
-        Random.Shared.Next(MinNumber, MaxNumber + 1),
-        Operation.Plus)
+    private PlusRound()
     {
+        Operation = Operation.Plus;
     }
 
-    protected override int Score => 1;
+    protected override float ScoreBase => 1;
 
     protected override int ExpectedResult => Left + Right;
 

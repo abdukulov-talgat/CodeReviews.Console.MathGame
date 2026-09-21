@@ -10,19 +10,18 @@ public abstract class OperationFlowStateBase : FlowStateBase
     {
         Operation operation = GetRelevantOperation();
         Console.WriteLine(string.PadCenter($"Starting {operation.GetDescription()} Session"));
-        int score = PlaySession(operation);
-        Console.WriteLine(string.PadCenter($"Session is over. Your score: {score}"));
+        float score = PlaySession(operation);
+        Console.WriteLine(string.PadCenter($"Session is over. Your score: {score:F2}"));
 
         PlayFlowState playFlowState = new();
         Context.ChangeState(playFlowState);
     }
 
-    private int PlaySession(Operation operation)
+    private float PlaySession(Operation operation)
     {
-        Game game = Context.GetGame();
-        foreach (RoundBase round in game.GetSessionRounds(operation)) PlayRound(round);
+        foreach (RoundBase round in Game.Instance.GetSessionRounds(operation)) PlayRound(round);
 
-        return game.GetLastSessionScore();
+        return Game.Instance.GetLastSessionScore();
     }
 
     private void PlayRound(RoundBase round)
