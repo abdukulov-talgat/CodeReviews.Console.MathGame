@@ -16,7 +16,7 @@ public abstract class RoundBase(int left, int right, Operation operation)
 
     public int ActualResult { get; set; }
 
-    protected abstract int Score { get; init; }
+    protected abstract int Score { get; }
 
     protected abstract int ExpectedResult { get; }
 

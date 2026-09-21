@@ -8,7 +8,7 @@ public class MinusRound : RoundBase
     {
     }
 
-    protected override int Score { get; init; } = 1;
+    protected override int Score => 1;
 
     protected override int ExpectedResult => Left - Right;
 

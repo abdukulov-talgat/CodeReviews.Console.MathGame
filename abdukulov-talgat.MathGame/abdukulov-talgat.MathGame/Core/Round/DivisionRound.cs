@@ -9,7 +9,7 @@ public class DivisionRound : RoundBase
         Right = Random.Shared.Next(MinNumber, MaxNumber + 1);
     }
 
-    protected override int Score { get; init; } = 2;
+    protected override int Score => 2;
 
     protected override int ExpectedResult => Left / Right;
 

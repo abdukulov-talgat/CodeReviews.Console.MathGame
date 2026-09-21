@@ -8,7 +8,7 @@ public class MultiplyRound : RoundBase
     {
     }
 
-    protected override int Score { get; init; } = 2;
+    protected override int Score => 2;
 
     protected override int ExpectedResult => Left * Right;
 
