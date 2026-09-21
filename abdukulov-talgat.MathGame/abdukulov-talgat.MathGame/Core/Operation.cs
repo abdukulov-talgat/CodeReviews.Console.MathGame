@@ -17,7 +17,10 @@ public enum Operation
 
     [Description("/")] [RoundCreator(typeof(DivisionRound))]
     Division = 8,
+    
+    [Description("mod")] [RoundCreator(typeof(ModRound))]
+    Mod = 16,
 
 
-    [Description("Random")] All = Plus | Minus | Multiply | Division
+    [Description("Random")] All = Plus | Minus | Multiply | Division | Mod
 }

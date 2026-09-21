@@ -26,3 +26,8 @@ public class RandomOperationFlow : OperationFlowStateBase
 {
     public override Operation GetRelevantOperation() => Operation.All;
 }
+
+public class ModOperationFlow : OperationFlowStateBase
+{
+    public override Operation GetRelevantOperation() => Operation.Mod;
+}

@@ -12,9 +12,10 @@ public class PlayFlowState : FlowStateBase, IMenu
         { "2", new MenuItem(Display: Operation.Minus.GetDescription(), () => new MinusOperationFlow()) },
         { "3", new MenuItem(Display: Operation.Multiply.GetDescription(), () => new MultiplyOperationFlow()) },
         { "4", new MenuItem(Display: Operation.Division.GetDescription(), () => new DivisionOperationFlow()) },
-        { "5", new MenuItem(Display: Operation.All.GetDescription(), () => new RandomOperationFlow()) },
-        { "6", new MenuItem("Back", () => new DifficultyFlowState()) },
-        { "7", new MenuItem("Main Menu", () => new MainMenuState()) },
+        { "5", new MenuItem(Display: Operation.Mod.GetDescription(), () => new ModOperationFlow()) },
+        { "6", new MenuItem(Display: Operation.All.GetDescription(), () => new RandomOperationFlow()) },
+        { "7", new MenuItem("Back", () => new DifficultyFlowState()) },
+        { "8", new MenuItem("Main Menu", () => new MainMenuState()) },
     };
 
     public override void ProcessGameLoop()
