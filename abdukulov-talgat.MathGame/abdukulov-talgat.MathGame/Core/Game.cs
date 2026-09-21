@@ -12,8 +12,10 @@ public class Game
             return field;
         }
     }
-    
-    private Game(){}
+
+    private Game()
+    {
+    }
 
     private readonly IList<GameSession> _sessionList = [];
 
@@ -26,10 +28,9 @@ public class Game
         return session;
     }
 
-    public float GetLastSessionScore()
-    {
-        return _sessionList.Last().GetScore();
-    }
+    public float GetLastSessionScore() => _sessionList.Last().TotalScore;
+
+    public double GetLastSessionSecondsSpent() => _sessionList.Last().SecondsSpent;
 
     public IReadOnlyList<GameSession> GetSessionsHistory() => _sessionList.AsReadOnly();
 

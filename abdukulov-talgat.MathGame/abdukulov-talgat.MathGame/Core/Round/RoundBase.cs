@@ -4,6 +4,8 @@ namespace abdukulov_talgat.MathGame.Core.Round;
 
 public abstract class RoundBase
 {
+    public event Action? OnRoundFinished;
+
     protected RoundBase()
     {
         Difficulty = Game.Instance.Difficulty;
@@ -27,6 +29,8 @@ public abstract class RoundBase
             if (_gotAnswer) return;
             _gotAnswer = true;
             field = value;
+            OnRoundFinished?.Invoke();
+            OnRoundFinished = null;
         }
     }
 

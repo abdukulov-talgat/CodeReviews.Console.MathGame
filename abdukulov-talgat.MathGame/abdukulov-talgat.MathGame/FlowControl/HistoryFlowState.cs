@@ -23,7 +23,7 @@ public class HistoryFlowState : FlowStateBase
         for (int i = 0; i < history.Count; i++)
         {
             GameSession session = history[i];
-            Console.WriteLine($"{i + 1}) Score: {session.GetScore():F2}");
+            Console.WriteLine($"{i + 1}) Score: {session.TotalScore:F2}\tTime spent: {session.SecondsSpent:F2}");
         }
     }
 }

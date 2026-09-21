@@ -24,17 +24,38 @@ public class GameSession : IEnumerable<RoundBase>
         }
     }
 
-    public float GetScore()
+    public float TotalScore => _roundsList.Sum(r => r.GetScore());
+
+    public double SecondsSpent { get; private set; }
+
+    private void MeasureTimeSpent(int i, DateTime start)
     {
-        return _roundsList.Sum(r => r.GetScore());
+        _roundsList[i].OnRoundFinished += () =>
+        {
+            DateTime end = DateTime.Now;
+            SecondsSpent = (end - start).TotalSeconds;
+        };
+    }
+
+    private static bool IsItLastRound(int i)
+    {
+        return i == AppConsts.RoundsPerSession - 1;
     }
 
     #region IEnumerable
 
-    // Should I use _roundsList.GetEnumerator() or _roundsList.AsReadOnly().GetEnumerator();
     public IEnumerator<RoundBase> GetEnumerator()
     {
-        return _roundsList.GetEnumerator();
+        DateTime start = DateTime.Now;
+        for (int i = 0; i < AppConsts.RoundsPerSession; i++)
+        {
+            if (IsItLastRound(i))
+            {
+                MeasureTimeSpent(i, start);
+            }
+
+            yield return _roundsList[i];
+        }
     }
 
     IEnumerator IEnumerable.GetEnumerator()
